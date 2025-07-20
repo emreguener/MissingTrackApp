@@ -31,7 +31,7 @@ namespace MissingTrackApp
                             var mainResult = mainForm.ShowDialog(); // modal olarak mainForm açılır
                             if (mainResult == DialogResult.Cancel)
                             {
-                                // Geri butonuna basıldıysa tekrar login form'a dön
+                                // Geri butonuna basıldıysa tekrar login form'a dön 
                                 continue; 
                             }
                             else

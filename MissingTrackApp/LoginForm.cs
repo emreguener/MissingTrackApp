@@ -14,19 +14,25 @@ namespace MissingTrackApp
 
         public User LoggedInUser { get; private set; }
 
-        // OOP'a uygun: service DI olarak alınır
+        
         public LoginForm(IUserService userService)
         {
             InitializeComponent();
             _userService = userService;
-            //this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            // TEST İÇİN: Gerçek 1366x768 çözünürlükte aç
+            //this.Size = new Size(1366, 768);
             //this.StartPosition = FormStartPosition.CenterScreen;
-            txtPassword.UseSystemPasswordChar = true;
+            //this.MaximumSize = new Size(1366, 768);
+            //this.MinimumSize = new Size(1366, 768);
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
+            txtUserId.Focus();
             lblWarning.Text = "";
+            txtPassword.UseSystemPasswordChar = true; // şifreyi gizle
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -74,5 +80,12 @@ namespace MissingTrackApp
                 return builder.ToString();
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
     }
 }

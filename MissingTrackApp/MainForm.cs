@@ -12,41 +12,38 @@ namespace MissingTrackApp.UI
         private readonly IMissingPartService _partService;
         private readonly User _currentUser;
         private readonly LoginForm _loginForm;
+        private bool _isBackClicked = false;
+        private bool _isExitClicked = false;
 
         public MainForm(IMissingPartService partService, User currentUser)
         {
+            // TEST İÇİN: Gerçek 1366x768 çözünürlükte aç
+            //this.Size = new Size(1366, 768);
+            //this.StartPosition = FormStartPosition.CenterScreen;
+            //this.MaximumSize = new Size(1366, 768);
+            //this.MinimumSize = new Size(1366, 768);
+            
+            
             InitializeComponent();
             _partService = partService;
             _currentUser = currentUser;
+
+            if (_currentUser.Role == "Admin")
+                btnRegisterUser.Visible = true;
+            else
+                btnRegisterUser.Visible = false;
+
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
             lblWelcome.Text = $"Hoş Geldiniz, {_currentUser.Username}!";
+            lblRole.Text = $"Rol: {_currentUser.Role}";
         }
 
-        private void Timer1_Tick(object sender, EventArgs e)
-        {
-            lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
-            lblClock.Text = DateTime.Now.ToString("HH:mm:ss");
-            timer1.Interval = 1000; // 1 saniye
-            timer1.Tick += Timer1_Tick;
-            timer1.Start();
-
+            maskedSerialStart.Focus();
             lblResult.Text = "";
-            //maskedSerialStart.Mask = "00000000/0000/0000";
-            //maskedSerialStart.PromptChar = '-';
-            //maskedSerialStart.Enter += (sender2, args2) => maskedSerialStart.SelectionStart = 0;
-
-            //maskedSerialEnd.Mask = "0000";
-            //maskedSerialEnd.PromptChar = '-';
-            //maskedSerialEnd.Enter += (sender2, args2) => maskedSerialEnd.SelectionStart = 0;
-
-            //maskedMissingCode.Mask = "00000000";
-            //maskedMissingCode.PromptChar = '-';
-            //maskedMissingCode.Enter += (sender2, args2) => maskedMissingCode.SelectionStart = 0;
-
             // Sayısal giriş zorlaması
             maskedSerialStart.KeyPress += NumericOnly_KeyPress;
             maskedSerialEnd.KeyPress += NumericOnly_KeyPress;
@@ -120,15 +117,79 @@ namespace MissingTrackApp.UI
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            //Application.Exit();
+            _isExitClicked = true;
+            this.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel; // MainForm'dan çıkış (geri)
+            //this.DialogResult = DialogResult.Cancel; // MainForm'dan çıkış (geri)
+            //this.Close();
+            _isBackClicked = true;
             this.Close();
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (_isBackClicked)
+            {
+                this.DialogResult = DialogResult.Cancel;
+            }
+            else
+            {
+                this.DialogResult = DialogResult.Abort; // Exit veya çarpı
+            }
+        }
+
+        
+
+        private void btnRegisterUser_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                IUserService userService = new UserService();
+                using (RegisterForm registerForm = new RegisterForm(_partService, userService, _currentUser))
+                {
+                    this.Hide();
+                    registerForm.ShowDialog();
+                    this.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Kayıt formu açılırken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            using (var changePasswordForm = new ChangePasswordForm(_currentUser, _partService))
+            {
+                this.Hide();
+                changePasswordForm.ShowDialog();
+                this.Show();
+            }
+        }
+        // tabletlerde textboxlara tıklanınca imleç en başa (ilk indekse) gitsin diye
+        
+        private void maskedSerialStart_Enter(object sender, EventArgs e)
+        {
+            maskedSerialStart.SelectionStart = 0; 
+            maskedSerialStart.SelectionLength = 0;
+        }
+
+        private void maskedSerialEnd_Enter(object sender, EventArgs e)
+        {
+            maskedSerialEnd.SelectionStart = 0; 
+            maskedSerialEnd.SelectionLength = 0;
+        }
+
+        private void maskedMissingCode_Enter(object sender, EventArgs e)
+        {
+            maskedMissingCode.SelectionStart = 0;
+            maskedMissingCode.SelectionLength = 0;
+        }
 
     }
 }
