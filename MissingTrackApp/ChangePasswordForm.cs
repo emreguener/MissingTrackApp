@@ -43,6 +43,8 @@ namespace MissingTrackApp
                 cmbUserSelection.Visible = false;
                 txtBoxUserNewPassword.Visible = false;
                 btnUserSave.Visible = false;
+                lblSelectedUserChoice.Visible = false;
+                lblUserChoice.Visible = false;
             }
         }
 

@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.txtBoxCurrentPassword = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtBoxNewPassword = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbUserSelection = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtBoxUserNewPassword = new System.Windows.Forms.TextBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnUserSave = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoxNewPassword = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtBoxCurrentPassword = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblUserChoice = new System.Windows.Forms.Label();
+            this.cmbUserSelection = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblSelectedUserChoice = new System.Windows.Forms.Label();
+            this.txtBoxUserNewPassword = new System.Windows.Forms.TextBox();
+            this.btnUserSave = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +78,36 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1161, 515);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // flowLayoutPanel2
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel2, 2);
+            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.txtBoxNewPassword);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 144);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1155, 71);
+            this.flowLayoutPanel2.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(159, 45);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Yeni Şifre:";
+            // 
+            // txtBoxNewPassword
+            // 
+            this.txtBoxNewPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtBoxNewPassword.Location = new System.Drawing.Point(168, 3);
+            this.txtBoxNewPassword.Name = "txtBoxNewPassword";
+            this.txtBoxNewPassword.Size = new System.Drawing.Size(499, 38);
+            this.txtBoxNewPassword.TabIndex = 2;
+            // 
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
@@ -95,14 +125,16 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // txtBoxCurrentPassword
+            // flowLayoutPanel1
             // 
-            this.txtBoxCurrentPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtBoxCurrentPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtBoxCurrentPassword.Location = new System.Drawing.Point(217, 4);
-            this.txtBoxCurrentPassword.Name = "txtBoxCurrentPassword";
-            this.txtBoxCurrentPassword.Size = new System.Drawing.Size(450, 38);
-            this.txtBoxCurrentPassword.TabIndex = 0;
+            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.txtBoxCurrentPassword);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 67);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1155, 71);
+            this.flowLayoutPanel1.TabIndex = 13;
             // 
             // label1
             // 
@@ -115,63 +147,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Mevcut Şifre:";
             // 
-            // txtBoxNewPassword
+            // txtBoxCurrentPassword
             // 
-            this.txtBoxNewPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtBoxNewPassword.Location = new System.Drawing.Point(168, 3);
-            this.txtBoxNewPassword.Name = "txtBoxNewPassword";
-            this.txtBoxNewPassword.Size = new System.Drawing.Size(499, 38);
-            this.txtBoxNewPassword.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 45);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Yeni Şifre:";
-            // 
-            // cmbUserSelection
-            // 
-            this.cmbUserSelection.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbUserSelection.FormattingEnabled = true;
-            this.cmbUserSelection.Location = new System.Drawing.Point(260, 3);
-            this.cmbUserSelection.Name = "cmbUserSelection";
-            this.cmbUserSelection.Size = new System.Drawing.Size(575, 39);
-            this.cmbUserSelection.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(251, 45);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Kullanıcı Seçimi:";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(354, 45);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Seçilen Kullanıcı Şifresi:";
-            // 
-            // txtBoxUserNewPassword
-            // 
-            this.txtBoxUserNewPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtBoxUserNewPassword.Location = new System.Drawing.Point(363, 3);
-            this.txtBoxUserNewPassword.Name = "txtBoxUserNewPassword";
-            this.txtBoxUserNewPassword.Size = new System.Drawing.Size(417, 38);
-            this.txtBoxUserNewPassword.TabIndex = 9;
+            this.txtBoxCurrentPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtBoxCurrentPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtBoxCurrentPassword.Location = new System.Drawing.Point(217, 4);
+            this.txtBoxCurrentPassword.Name = "txtBoxCurrentPassword";
+            this.txtBoxCurrentPassword.Size = new System.Drawing.Size(450, 38);
+            this.txtBoxCurrentPassword.TabIndex = 0;
             // 
             // btnSave
             // 
@@ -189,6 +172,66 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // flowLayoutPanel3
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel3, 2);
+            this.flowLayoutPanel3.Controls.Add(this.lblUserChoice);
+            this.flowLayoutPanel3.Controls.Add(this.cmbUserSelection);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 298);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1155, 71);
+            this.flowLayoutPanel3.TabIndex = 15;
+            // 
+            // lblUserChoice
+            // 
+            this.lblUserChoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUserChoice.AutoSize = true;
+            this.lblUserChoice.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUserChoice.Location = new System.Drawing.Point(3, 0);
+            this.lblUserChoice.Name = "lblUserChoice";
+            this.lblUserChoice.Size = new System.Drawing.Size(251, 45);
+            this.lblUserChoice.TabIndex = 7;
+            this.lblUserChoice.Text = "Kullanıcı Seçimi:";
+            // 
+            // cmbUserSelection
+            // 
+            this.cmbUserSelection.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbUserSelection.FormattingEnabled = true;
+            this.cmbUserSelection.Location = new System.Drawing.Point(260, 3);
+            this.cmbUserSelection.Name = "cmbUserSelection";
+            this.cmbUserSelection.Size = new System.Drawing.Size(575, 39);
+            this.cmbUserSelection.TabIndex = 6;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel4, 2);
+            this.flowLayoutPanel4.Controls.Add(this.lblSelectedUserChoice);
+            this.flowLayoutPanel4.Controls.Add(this.txtBoxUserNewPassword);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 375);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1155, 71);
+            this.flowLayoutPanel4.TabIndex = 16;
+            // 
+            // lblSelectedUserChoice
+            // 
+            this.lblSelectedUserChoice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSelectedUserChoice.AutoSize = true;
+            this.lblSelectedUserChoice.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblSelectedUserChoice.Location = new System.Drawing.Point(3, 0);
+            this.lblSelectedUserChoice.Name = "lblSelectedUserChoice";
+            this.lblSelectedUserChoice.Size = new System.Drawing.Size(354, 45);
+            this.lblSelectedUserChoice.TabIndex = 8;
+            this.lblSelectedUserChoice.Text = "Seçilen Kullanıcı Şifresi:";
+            // 
+            // txtBoxUserNewPassword
+            // 
+            this.txtBoxUserNewPassword.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtBoxUserNewPassword.Location = new System.Drawing.Point(363, 3);
+            this.txtBoxUserNewPassword.Name = "txtBoxUserNewPassword";
+            this.txtBoxUserNewPassword.Size = new System.Drawing.Size(417, 38);
+            this.txtBoxUserNewPassword.TabIndex = 9;
+            // 
             // btnUserSave
             // 
             this.btnUserSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
@@ -205,49 +248,6 @@
             this.btnUserSave.UseVisualStyleBackColor = false;
             this.btnUserSave.Click += new System.EventHandler(this.btnUserSave_Click);
             // 
-            // flowLayoutPanel1
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel1, 2);
-            this.flowLayoutPanel1.Controls.Add(this.label1);
-            this.flowLayoutPanel1.Controls.Add(this.txtBoxCurrentPassword);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 67);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1155, 71);
-            this.flowLayoutPanel1.TabIndex = 13;
-            // 
-            // flowLayoutPanel2
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel2, 2);
-            this.flowLayoutPanel2.Controls.Add(this.label3);
-            this.flowLayoutPanel2.Controls.Add(this.txtBoxNewPassword);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 144);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1155, 71);
-            this.flowLayoutPanel2.TabIndex = 14;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel3, 2);
-            this.flowLayoutPanel3.Controls.Add(this.label4);
-            this.flowLayoutPanel3.Controls.Add(this.cmbUserSelection);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 298);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1155, 71);
-            this.flowLayoutPanel3.TabIndex = 15;
-            // 
-            // flowLayoutPanel4
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.flowLayoutPanel4, 2);
-            this.flowLayoutPanel4.Controls.Add(this.label5);
-            this.flowLayoutPanel4.Controls.Add(this.txtBoxUserNewPassword);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 375);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1155, 71);
-            this.flowLayoutPanel4.TabIndex = 16;
-            // 
             // ChangePasswordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -258,10 +258,10 @@
             this.Text = "ChangePasswordForm";
             this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
             this.flowLayoutPanel4.ResumeLayout(false);
@@ -279,8 +279,8 @@
         private System.Windows.Forms.TextBox txtBoxNewPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbUserSelection;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblUserChoice;
+        private System.Windows.Forms.Label lblSelectedUserChoice;
         private System.Windows.Forms.TextBox txtBoxUserNewPassword;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnUserSave;
